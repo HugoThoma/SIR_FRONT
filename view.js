@@ -37,9 +37,9 @@ function toDom(shape, index){
     if(shape && typeof shape === 'object'){
         let innerHtml = '<li id="liRemove' + index +'">'
         if(shape.constructor === Rectangle){
-            innerHtml += '<span style="color:' + shape.color + '"></span> Rectangle ' + index + ' '
+            innerHtml += '<span style="color:' + shape.color + '"></span> Rectangle'
         }else if(shape.constructor === Line){
-            innerHtml += '<span style="color:' + shape.color + '"></span> Line ' + index + ' '
+            innerHtml += '<span style="color:' + shape.color + '"></span> Line'
         }
         innerHtml += '<button type="button" class="btn btn-default remove" id="remove' + index + '">' +
             '<span class ="glyphicon glyphicon-remove-sign"></span> </button>'
