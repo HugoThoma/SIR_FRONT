@@ -1,6 +1,13 @@
 
 var editingMode = { rect: 0, line: 1 };
 
+function remove(drawing, index, ctx, canvas){
+	console.log(index);
+	drawing.shapeArray.delete(index);
+	document.getElementById('liRemove' + index).remove();
+	drawing.paint(ctx, canvas);
+}
+
 function Pencil(ctx, drawing, canvas) {
 	this.currEditingMode = editingMode.line;
 	this.currLineWidth = 5;
@@ -43,8 +50,14 @@ function Pencil(ctx, drawing, canvas) {
 		drawing.shapeArray.set(uuid, this.currentShape);
 		drawing.paint(ctx, canvas);
 		updateShapeList(uuid, this.currentShape);
-		document.getElementById("remove" + uuid).onclick = (e) => remove(drawing, e.currentTarget.id.substring(6), ctx, canvas)
+		console.log(drawing +" " + ctx + " "+ canvas);
 
+		const removeButton = document.getElementById("remove" + uuid);
+
+		if (removeButton) {
+			console.log(document.getElementById("remove" + uuid).toString())
+			removeButton.onclick = (e) => remove(drawing, e.currentTarget.id.substring(6), ctx, canvas);
+		}
 		/*
 		drawing.shapeArray.push(this.currentShape);
 		drawing.paint(ctx, canvas);
@@ -53,12 +66,7 @@ function Pencil(ctx, drawing, canvas) {
 	}.bind(this);
 };
 
-function remove(drawing, index, ctx, canvas){
-	console.log(index);
-	drawing.shapeArray.delete(index);
-	document.getElementById('liRemove' + index).remove();
-	drawing.paint(ctx, canvas);
-}
+
 
 function generateUUID() { // Public Domain/MIT
 	var d = new Date().getTime();//Timestamp
