@@ -9,7 +9,7 @@ import {PokeShareInfoService} from "../poke-share-info.service";
   selector: 'app-my-component',
   templateUrl: './my-component.component.html',
   styleUrls: ['./my-component.component.css'],
-  providers : [PokeAPIServiceService,PokeShareInfoService],
+  providers : [PokeAPIServiceService],
 })
 export class MyComponentComponent {
 id : string ='';
@@ -34,8 +34,9 @@ constructor(private pokeService : PokeAPIServiceService,private pokeShareInfo : 
   go(){
   this.pokeShareInfo.setvalue(this.selectedPokeId)
     if(this.selectedPokeId != ''){
-      this.pokeService.getPokemonInfo(this.selectedPokeId).subscribe(data =>
-      this.pokeDetail= data)
+      this.pokeService.getPokemonInfo(this.selectedPokeId).
+      subscribe(data => this.pokeDetail= data)
+      this.pokeShareInfo.setvalue(this.selectedPokeId)
     }
   }
 }
