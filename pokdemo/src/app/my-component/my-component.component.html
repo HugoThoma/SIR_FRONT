@@ -11,6 +11,15 @@ Mon pokemon séléctionné : {{selectedPokeId}}
 <BR>
 <input [(ngModel)]="searchPokeName">
 <button (click)="go()" >Go!</button>
+<BR>
+<div *ngIf="pokeDetail">
+  Le pokemon selectionné est {{pokeDetail.name}}
+  <ul>
+    <li *ngFor="let ability of pokeDetail.abilities">{{ability.ability.name}}</li>
+  </ul>
+</div>
+
+<BR> Liste des pokemons
 <ul>
   <li *ngFor="let poke of pokes">{{poke.name}}</li>
 </ul>
