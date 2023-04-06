@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import {AppComponent} from "../app.component";
 import {PokeDetail, Pokemon} from "../pokemon";
 import {PokeAPIServiceService} from "../poke-apiservice.service";
+import {PokeShareInfoService} from "../poke-share-info.service";
 
+// @ts-ignore
 @Component({
   selector: 'app-my-component',
   templateUrl: './my-component.component.html',
   styleUrls: ['./my-component.component.css'],
-  providers : [PokeAPIServiceService]
+  providers : [PokeAPIServiceService,PokeShareInfoService],
 })
 export class MyComponentComponent {
 id : string ='';
@@ -15,7 +17,7 @@ selectedPokeId : string='';
 searchPokeName : string='';
 pokeDetail : PokeDetail;
 pokes: Pokemon[] = []
-constructor(private pokeService : PokeAPIServiceService) {
+constructor(private pokeService : PokeAPIServiceService,private pokeShareInfo : PokeShareInfoService) {
   this.pokes.push(new Pokemon('1','Pikachu','http://pokeapi.co/api/v2/pokemon/'))
   this.pokes.push(new Pokemon('2','Salamèche','http://pokeapi.co/api/v2/pokemon/'))
   this.pokes.push(new Pokemon('3','Bulbizare','http://pokeapi.co/api/v2/pokemon/'))
@@ -30,6 +32,7 @@ constructor(private pokeService : PokeAPIServiceService) {
         }))
   }
   go(){
+  this.pokeShareInfo.setvalue(this.selectedPokeId)
     if(this.selectedPokeId != ''){
       this.pokeService.getPokemonInfo(this.selectedPokeId).subscribe(data =>
       this.pokeDetail= data)
