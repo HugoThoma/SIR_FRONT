@@ -1,0 +1,10 @@
+{
+  "name": "SIR_FRONT",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "/pet": {
+    "target": "http://localhost:8080",
+    "secure": false
+  }
+}
