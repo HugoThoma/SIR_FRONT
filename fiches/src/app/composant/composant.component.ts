@@ -16,6 +16,8 @@ fiches : Fiche[]=[]
 
   }
   ngOnInit(){
-  this.backficheService.getFiches()
+  this.backficheService.getFiches();
+  this.backficheService.getUnefiche()
+
   }
 }
