@@ -1,6 +1,37 @@
-<p>Fiches</p>
-<input [(ngModel)]="id">
-<BR> Liste des fiches
-<ul>
-  <li *ngFor="let fiche of fiches">{{fiche.title}}</li>
-</ul>
+
+<!--input [(ngModel)]="id"-->
+
+<BR> <BR><b>Liste des fiches</b>
+<BR><BR>
+<table>
+<tr>
+  <th>ID    </th>
+  <th>Titre   </th>
+  <th>User    </th>
+  <th>Support     </th>
+  <th>Date d'émission     </th>
+</tr>
+  <tr *ngFor="let fiche of fiches">
+  <td>{{fiche.id}}</td>
+  <td>{{fiche.title}}</td>
+  <td>{{fiche.user}}</td>
+  <td>{{fiche.support}}</td>
+  <td>{{fiche.dateEmission}}</td>
+  </tr>
+
+
+</table>
+<BR> <BR><b>Liste des users</b>
+<BR><BR>
+<table>
+  <tr>
+    <th>ID    </th>
+    <th>Nom  </th>
+  </tr>
+  <tr *ngFor="let personne of personnes">
+    <td>{{personne.id}}</td>
+    <td>{{personne.name}}</td>
+  </tr>
+
+
+</table>

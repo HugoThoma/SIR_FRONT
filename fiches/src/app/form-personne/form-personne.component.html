@@ -1,0 +1,17 @@
+<p>Inserer une personne </p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div>
+    <label for="type">Type :</label>
+    <select id="type" name="type" ngModel required>
+      <option value="user">User</option>
+      <option value="support">Support member</option>
+    </select>
+  </div>
+  <div>
+    <label for="name">name :</label>
+    <input type="name" id="name" name="name" ngModel required>
+  </div>
+  <div>
+    <button type="submit">Ajouter</button>
+  </div>
+</form>

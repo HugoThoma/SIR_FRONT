@@ -1,0 +1,26 @@
+<p>Inserer une fiche </p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div>
+    <label for="type">Type :</label>
+    <select id="type" name="type" ngModel required>
+      <option value="bug">Bug</option>
+      <option value="feature">Feature request</option>
+    </select>
+  </div>
+  <div>
+    <label for="title">Titre :</label>
+    <input type="text" id="title" name="title" ngModel required>
+  </div>
+  <div>
+    <label for="description">Description :</label>
+    <textarea id="description" name="description" ngModel required></textarea>
+  </div>
+  <div>
+    <label for="user">User ID :</label>
+    <textarea id="user" name="user" ngModel required></textarea>
+  </div>
+
+  <div>
+    <button type="submit">Ajouter</button>
+  </div>
+</form>
