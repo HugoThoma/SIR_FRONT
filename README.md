@@ -1,5 +1,19 @@
 # Sujet de TP Angular 
 
+## Binôme
+
+Maria Rosane BENKHELIL
+
+Hugo THOMAS
+
+## Set Up
+
+Lancer le serveur : ``ng serve``
+
+Puis accéder à l'``index.html`` depuis un navigateur.
+
+---
+
 ![](https://github.com/barais/teaching-jxs-angular/raw/master/img/banner.png)
 
 Votre aventure dans le monde merveilleux des frameworks JavaScript commence avec Angular.
